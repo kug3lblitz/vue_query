@@ -1,0 +1,66 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+  grid-area: header;
+}
+.main {
+  grid-area: main;
+}
+#sidebar {
+  grid-area: sidebar;
+  background: #bfbcbc;
+}
+.footer {
+  grid-area: footer;
+}
+
+.container {
+    display: grid;
+    align-content: space-evenly;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "header header header header"
+        "sidebar main main main"
+        "footer footer footer footer"
+}
+
+header {
+    background: #5d5d5d;
+    color: white;
+    padding: 1em;
+}
+
+#loginForm {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#loginForm input {
+    background: white;
+    color: black;
+    height: 2em;
+}
+
+input[type="number"] {
+    height: 2.25em;
+}
+
+.main {
+    padding: 0 1em;
+    min-height: 100vh;
+}
+
+.main div {
+    padding: 1em 0;
+}
+
+footer {
+    background: #5d5d5d;
+    color: white;
+    padding: 1em;
+}

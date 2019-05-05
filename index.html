@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trading jQuery for Vue</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <div class="container">
+
+        <header class="header">
+            <div id="loginForm">
+                <div class="left">
+                    <label for="name">Login (8 to 10 characters):</label>
+                    <input type="text" id="name" name="name" required
+                       minlength="8" maxlength="10" size="12">
+                </div>
+                <div class="right">
+                    <label for="password">Password (8 to 15 characters):</label>
+                    <input type="password" id="password" name="password" required
+                       minlength="8" maxlength="15" size="16">
+                    <button>Submit</button>
+                </div>
+            </div>
+        </header>
+
+        <div id="sidebar">
+            stuff
+        </div>
+
+        <main class="main">
+
+            <div id="app">
+                <h1>alerts</h1>
+                <button v-on:click="doSomething">Ex. Alerts</button>
+            </div>
+
+            <div id="app1">
+                <h1>changing text/element values</h1>
+                <button v-on:click="doSomething">Ex. Change/show text</button>
+                <!--jquery change text-->
+                <span>{{resultText}}</span>
+            </div>
+
+            <div id="calcForm">
+                <h1>reading and writing form vars</h1>
+                <form id="calcForm">
+                    <input type="number" v-model.number="first">
+                    <select v-model=operator>
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="*">*</option>
+                        <option value="/">/</option>
+                    </select>
+                    <input type="number" v-model.number="second">
+                </form>
+                <h2>Result: {{first}} {{operator}} {{second}} = {{c}}</h2>
+            </div>
+
+            <div id="usingajax">
+                <h2>Star Wars Movies</h2>
+                <ul>
+                    <li v-for="movie in movies">{{movie.title}}</li>
+                </ul>
+            </div>
+
+            <div id="foodgames">
+                <form>
+                    <p>
+                        <label for="search">Search</label>
+                        <input type="search" v-model="search">
+                    </p>
+                    <p>
+                        <label for="category">Category</label>
+                        <select v-model="category">
+                            <option></option>
+                            <option>Food</option>
+                            <option>Games</option>
+                        </select>
+                    </p>
+                    <button @click.prevent="searchProducts" :disabled="searchBtnDisabled">Search</button>
+                </form>
+
+                <div v-html="status"></div>
+                <ul v-if="results">
+                    <li v-for="result in results">{{result.name}}</li>
+                </ul>
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            this is the footer
+        </footer>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
